@@ -1,0 +1,7 @@
+{
+  "name": "nequi-test",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
