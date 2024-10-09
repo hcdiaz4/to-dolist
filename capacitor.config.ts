@@ -1,8 +1,8 @@
 import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
-  appId: 'io.ionic.starter',
-  appName: 'nequi-test',
+  appId: 'com.nequi.todo',
+  appName: 'ToDo List',
   webDir: 'www'
 };
 

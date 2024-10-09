@@ -1,0 +1,22 @@
+<div class="filters">
+    Filter by:
+    <div class="filters__items">
+        <!-- <ion-select [interfaceOptions]="" interface="popover" placeholder="Priority">
+            <ion-select-option value={{idx}}
+                *ngFor="let item of priorities; let idx = index">{{item.name}}</ion-select-option>
+        </ion-select> -->
+
+        <ion-select [interfaceOptions]="" interface="popover" placeholder="Category" (ionChange)="sendCategory($event)">
+
+            <ion-select-option [value]="category.title"
+                *ngFor="let category of listCategories">{{category.title}}</ion-select-option>
+        </ion-select>
+
+        <!-- <ion-select [interfaceOptions]="" interface="popover" placeholder="State">
+
+            <ion-select-option value={{idx}}
+                *ngFor="let item of states; let idx = index">{{item.name}}</ion-select-option>
+
+        </ion-select> -->
+    </div>
+</div>

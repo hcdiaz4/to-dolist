@@ -1,0 +1,66 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button color="medium" (click)="cancel()">Close</ion-button>
+    </ion-buttons>
+    <ion-title>Add Task</ion-title>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding" [fullscreen]="true">
+  <form [formGroup]="taskForm" (ngSubmit)="onSaveTask()">
+    <ion-list>
+
+      <ion-row>
+        <ion-col>
+          <ion-input label="Task title" label-placement="floating" fill="outline" placeholder="Escribe..." mode="md"
+            formControlName="title"></ion-input>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-textarea label="Short description" labelPlacement="floating" [counter]="true" maxlength="50"
+            [autoGrow]="true" formControlName="short_description"></ion-textarea>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-select label="Category" label-placement="floating" fill="outline" formControlName="category">
+            <ion-select-option [value]="category.title"
+              *ngFor="let category of listCategories">{{category.title}}</ion-select-option>
+          </ion-select>
+        </ion-col>
+
+        <ion-col>
+          <ion-select label="Priority" label-placement="floating" fill="outline" formControlName="priority">
+            <ion-select-option value="High">High</ion-select-option>
+            <ion-select-option value="Medium">Medium</ion-select-option>
+            <ion-select-option value="Low">Low</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-select label="Status" label-placement="floating" fill="outline" formControlName="status">
+            <ion-select-option value="0">To Do</ion-select-option>
+            <ion-select-option value="1">In Progress</ion-select-option>
+            <ion-select-option value="2">Done</ion-select-option>
+          </ion-select>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <ion-textarea label="Description" labelPlacement="floating" [counter]="true" maxlength="300" [autoGrow]="true"
+            formControlName="description"></ion-textarea>
+        </ion-col>
+      </ion-row>
+
+    </ion-list>
+    <ion-button expand="full" type="submit" [disabled]="!taskForm.valid">Save task</ion-button>
+
+  </form>
+
+</ion-content>

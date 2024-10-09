@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Categories</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <!-- <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">categories</ion-title>
+    </ion-toolbar>
+  </ion-header> -->
+  <h3>Category list</h3>
+  <div class="category-list">
+    <form [formGroup]="formCategories" (ngSubmit)="saveEditTask()">
+      <ion-list formArrayName="items">
+        <ion-item *ngFor="let item of itemsCategory.controls; let $idx = index">
+          <ion-input [formControlName]="$idx" [disabled]="item.disabled" label-placement="floating" fill="outline"
+            mode="md" />
+        </ion-item>
+        <ion-button size="small" (click)="addCategory()">
+          <ion-icon slot="start" name="add"></ion-icon>
+          Add Category
+        </ion-button>
+      </ion-list>
+      <ion-button expand="full" type="submit" [disabled]="!formCategories.valid">Save Categories</ion-button>
+    </form>
+  </div>
+</ion-content>

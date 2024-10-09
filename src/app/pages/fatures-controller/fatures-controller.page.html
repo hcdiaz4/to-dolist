@@ -1,0 +1,9 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Controller Remote Config</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <app-loading-redirect *ngIf="goToPage" [goToPage]="goToPage"></app-loading-redirect>
+</ion-content>

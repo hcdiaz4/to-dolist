@@ -1,0 +1,28 @@
+<ion-header [translucent]="false">
+  <ion-toolbar>
+    <ion-title>My Tasks</ion-title>
+  </ion-toolbar>
+  <app-task-filters [states]="listStatesData" [priorities]="listPrioritiesData"
+    [categories]="listCategoriesData" (changeCategory)="sortByCategory($event)"></app-task-filters>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <div class="list-task">
+    <ion-button size="small" (click)="openModalFormAddTask()">
+      <ion-icon slot="start" name="add"></ion-icon>
+      Add Task
+    </ion-button>
+    <ion-list [inset]="true" lines="full" class="">
+
+      <ion-item *ngFor="let item of listTasks" (click)="goToTaskDetail(item.id)">
+        <ion-label>{{item.title}}</ion-label>
+        <ion-badge [class]="'priority__'+item.priority" color="danger"
+          style="margin-right: 5px;">{{item.priority}}</ion-badge>
+        <ion-badge color="tertiary">{{item.category}}</ion-badge>
+        <ion-badge [class]="'state__'+item.status" color="secondary">{{listStatesData[item?.status].name!}}</ion-badge>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
